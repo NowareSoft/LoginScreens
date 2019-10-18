@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:implementations="clr-namespace:LoginScreens.XF.Implementations"
+             xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             mc:Ignorable="d"
+             x:Class="LoginScreens.XF.Views.LoginOnePage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout>
+        <!-- Logo -->
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
+            <Image
+                HeightRequest="120"
+                HorizontalOptions="Center"
+                Source="autobu_green.png"
+                WidthRequest="120"/>
+            <Label
+                FontAttributes="Bold"
+                FontSize="34"
+                HorizontalTextAlignment="Center"
+                Text="PMPML"
+                TextColor="#46B515"/>
+        </StackLayout>
+        
+        <!-- Data -->
+        <StackLayout
+            Padding="30"
+            VerticalOptions="EndAndExpand">
+            <border:SfBorder
+                BackgroundColor="Transparent"
+                BorderWidth="1"
+                BorderColor="Silver"
+                CornerRadius="5"
+                Margin="0,0,0,15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Email Address -->
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="20"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="email.png"
+                        WidthRequest="20"
+                        VerticalOptions="CenterAndExpand"/>
+                    <implementations:MyEntry
+                        Grid.Column="1"
+                        Placeholder="Email Address"
+                        Keyboard="Email"
+                        TextColor="Black"/>
+
+                    <!-- Separator -->
+                    <BoxView
+                        BackgroundColor="Silver"
+                        HeightRequest="1"
+                        Grid.Column="1"
+                        Grid.Row="1"/>
+
+                    <!-- Password -->
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="20"
+                        HorizontalOptions="CenterAndExpand"
+                        Grid.Row="2"
+                        Source="password.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="20"/>
+                    <implementations:MyEntry
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        TextColor="Black"/>
+                </Grid>
+            </border:SfBorder>
+
+            <!-- Forgot Password -->
+            <Label
+                FontSize="12"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,15"
+                Text="Forgot Password?"
+                TextColor="#0052FF">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+
+            <!-- Buttons -->
+            <Grid
+                Margin="0,0,0,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Facebook -->
+                <border:SfBorder
+                    BackgroundColor="#3B5998"
+                    BorderWidth="0"
+                    CornerRadius="5"
+                    Padding="10">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="25"
+                        HorizontalOptions="Center"
+                        Source="facebook.png"
+                        VerticalOptions="Center"
+                        WidthRequest="25"/>
+                </border:SfBorder>
+
+                <!-- Login -->
+                <button:SfButton
+                    BackgroundColor="#46B515"
+                    CornerRadius="5"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    Grid.Column="2"
+                    Text="LOGIN"
+                    TextColor="White"/>
+            </Grid>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    FontSize="12"
+                    Text="By signing up, you agree with our"
+                    TextColor="Black"/>
+
+                <Label
+                    FontSize="12"
+                    Text="Terms and Conditions"
+                    TextColor="Blue"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
